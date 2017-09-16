@@ -57,8 +57,8 @@ public class SingleAnimalsListAdapter extends
 
     class SingleAnimalViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView singleItemImage;
-        TextView name;
+        private ImageView singleItemImage;
+        private TextView name;
 
         SingleAnimalViewHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.single_animal_item, parent, false));

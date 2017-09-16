@@ -46,8 +46,8 @@ public class AnimalsListAdapter extends RecyclerView.Adapter<AnimalsListAdapter.
 
     class AnimalTypeViewHolder extends RecyclerView.ViewHolder {
 
-        CircleImageView avatar;
-        TextView name;
+        private CircleImageView avatar;
+        private TextView name;
 
         AnimalTypeViewHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.item_list, parent, false));
@@ -56,7 +56,6 @@ public class AnimalsListAdapter extends RecyclerView.Adapter<AnimalsListAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // TODO
                     AnimalsGridFragment fragment = new AnimalsGridFragment();
                     Bundle bundle = new Bundle();
                     bundle.putInt(ANIMAL_TYPE_POSITION, getAdapterPosition());

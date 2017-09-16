@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.smbat_s.animalszoo.R;
-import com.example.smbat_s.animalszoo.adapters.AnimalsListAdapter;
 import com.example.smbat_s.animalszoo.models.BaseAnimal;
 import com.example.smbat_s.animalszoo.providers.AnimalsProvider;
 import com.example.smbat_s.animalszoo.views.AnimalsListView;
@@ -27,7 +26,7 @@ public class AnimalsFragment extends Fragment implements AnimalsProvider.Animals
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_animals, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_list, container, false);
         final AnimalsProvider animalsProvider = new AnimalsProvider();
         animalsProvider.loadAnimalTypes(this, rootView.getContext());
         animalsListView = new AnimalsListView(rootView);

@@ -38,18 +38,23 @@ public class AnimalDetailView {
         videoImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction ft = ((DetailActivity)context).getSupportFragmentManager().beginTransaction();
-                Fragment prev = ((DetailActivity)context).getSupportFragmentManager().findFragmentByTag("dialog");
-                if (prev != null) {
-                    ft.remove(prev);
-                }
-                ft.addToBackStack(null);
-                DialogFragment newFragment = new VideoDialogFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString(VIDEO_URL_KEY, animal.getVideoUrl());
-                newFragment.setArguments(bundle);
-                newFragment.show(ft, "dialog");
+                showVideoDialog((DetailActivity) context, animal);
             }
         });
+    }
+
+    private void showVideoDialog(DetailActivity context, SingleAnimal animal) {
+        FragmentTransaction ft = context.getSupportFragmentManager().beginTransaction();
+        Fragment prev = context.getSupportFragmentManager().findFragmentByTag("dialog");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+        DialogFragment newFragment = new VideoDialogFragment();
+        Bundle bundle = new Bundle();
+        System.out.println("animal = " + animal.getVideoUrl());
+        bundle.putString(VIDEO_URL_KEY, animal.getVideoUrl());
+        newFragment.setArguments(bundle);
+        newFragment.show(ft, "dialog");
     }
 }

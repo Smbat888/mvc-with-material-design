@@ -16,7 +16,7 @@ public class AnimalVideoDialogView {
     }
 
     public void playVideo(String urlPath) {
-        final Uri uri=Uri.parse(urlPath);
+        final Uri uri = Uri.parse(urlPath);
         videoView.setVideoURI(uri);
         videoView.start();
     }
