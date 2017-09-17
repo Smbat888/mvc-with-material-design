@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,12 +24,15 @@ public class AnimalDetailView {
     private TextView animalName;
     private TextView animalDescription;
     private ImageView videoImageButton;
+    private Toolbar toolbar;
+
 
     public AnimalDetailView(View view) {
         this.animalImage = view.findViewById(R.id.bg_image);
         this.animalName = view.findViewById(R.id.animal_name);
         this.animalDescription = view.findViewById(R.id.animal_description);
         this.videoImageButton = view.findViewById(R.id.video_button);
+        this.toolbar = view.findViewById(R.id.toolbar);;
     }
 
     public void loadAnimalDetail(final SingleAnimal animal, final Context context) {
@@ -41,6 +45,14 @@ public class AnimalDetailView {
                 showVideoDialog((DetailActivity) context, animal);
             }
         });
+    }
+
+    public void setToolbar(Context context) {
+        toolbar.setTitle("");
+        ((DetailActivity)context).setSupportActionBar(toolbar);
+        if(((DetailActivity)context).getSupportActionBar() != null) {
+            ((DetailActivity)context).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     private void showVideoDialog(DetailActivity context, SingleAnimal animal) {

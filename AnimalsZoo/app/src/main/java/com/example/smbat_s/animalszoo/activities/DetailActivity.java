@@ -23,6 +23,7 @@ public class DetailActivity extends AppCompatActivity implements
         final AnimalsProvider animalsProvider = new AnimalsProvider();
         animalsProvider.loadAnimalDetail(this, this, args);
         animalDetailView = new AnimalDetailView(getWindow().getDecorView());
+        animalDetailView.setToolbar(this);
     }
 
     @Override
