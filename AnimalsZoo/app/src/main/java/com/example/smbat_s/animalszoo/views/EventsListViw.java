@@ -21,7 +21,7 @@ public class EventsListViw {
     }
 
     public void loadEventsList(Context context, ArrayList<Event> events) {
-        final EventsListAdapter adapter = new EventsListAdapter(events);
+        final EventsListAdapter adapter = new EventsListAdapter(context, events);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));

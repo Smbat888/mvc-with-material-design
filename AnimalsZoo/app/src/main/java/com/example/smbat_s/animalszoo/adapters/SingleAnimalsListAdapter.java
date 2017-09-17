@@ -57,6 +57,9 @@ public class SingleAnimalsListAdapter extends
 
     class SingleAnimalViewHolder extends RecyclerView.ViewHolder {
 
+        private static final String IMAGE_TRANSITION_NAME = "animalImage";
+        private static final String TEXT_TRANSITION_NAME = "animalName";
+
         private ImageView singleItemImage;
         private TextView name;
 
@@ -70,8 +73,8 @@ public class SingleAnimalsListAdapter extends
                     Intent intent = new Intent(context, DetailActivity.class);
                     int[] args = {position, getAdapterPosition()};
                     intent.putExtra(CURRENT_ITEM_POSITIONS, args);
-                    Pair<View, String> pair1 = Pair.create((View) singleItemImage, "animalImage");
-                    Pair<View, String> pair2 = Pair.create((View) name, "animalName");
+                    Pair<View, String> pair1 = Pair.create((View) singleItemImage, IMAGE_TRANSITION_NAME);
+                    Pair<View, String> pair2 = Pair.create((View) name, TEXT_TRANSITION_NAME);
                     @SuppressWarnings("unchecked")
                     ActivityOptionsCompat optionsCompat =
                             ActivityOptionsCompat.makeSceneTransitionAnimation(

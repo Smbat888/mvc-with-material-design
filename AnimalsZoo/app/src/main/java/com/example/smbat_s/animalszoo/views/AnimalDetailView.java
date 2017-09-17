@@ -19,6 +19,7 @@ import com.example.smbat_s.animalszoo.models.SingleAnimal;
 public class AnimalDetailView {
 
     public static final String VIDEO_URL_KEY = "com.example.smbat_s.animalszoo.views.VIDEO_PARH";
+    private static final String VIDEO_DIALOG_TAG = "dialog";
 
     private ImageView animalImage;
     private TextView animalName;
@@ -57,16 +58,15 @@ public class AnimalDetailView {
 
     private void showVideoDialog(DetailActivity context, SingleAnimal animal) {
         FragmentTransaction ft = context.getSupportFragmentManager().beginTransaction();
-        Fragment prev = context.getSupportFragmentManager().findFragmentByTag("dialog");
+        Fragment prev = context.getSupportFragmentManager().findFragmentByTag(VIDEO_DIALOG_TAG);
         if (prev != null) {
             ft.remove(prev);
         }
         ft.addToBackStack(null);
         DialogFragment newFragment = new VideoDialogFragment();
         Bundle bundle = new Bundle();
-        System.out.println("animal = " + animal.getVideoUrl());
         bundle.putString(VIDEO_URL_KEY, animal.getVideoUrl());
         newFragment.setArguments(bundle);
-        newFragment.show(ft, "dialog");
+        newFragment.show(ft, VIDEO_DIALOG_TAG);
     }
 }

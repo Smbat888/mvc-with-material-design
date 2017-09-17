@@ -24,4 +24,6 @@
         completions."
     </string>
     <string name="date">Date</string>
+    <string name="notification_text">Event is registered</string>
+    <string name="notification_title">Animals Zoo Banner</string>
 </resources>
