@@ -29,8 +29,7 @@ public class VideoDialogFragment extends DialogFragment {
         final View view = inflater.inflate(R.layout.fragment_video_dialog, container, false);
         final String videoUrl = getArguments().getString(AnimalDetailView.VIDEO_URL_KEY);
         final AnimalVideoDialogView dialogView = new AnimalVideoDialogView(view);
-        // TODO --- videoUrl
-        dialogView.playVideo("http://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4");
+        dialogView.playVideo(videoUrl);
         return view;
     }
 

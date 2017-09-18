@@ -2,21 +2,26 @@ package com.example.smbat_s.animalszoo.models;
 
 import android.graphics.drawable.Drawable;
 
+import java.util.ArrayList;
+
 public class SingleAnimal {
 
     private String name;
     private Drawable image;
     private String description;
     private String videoUrl;
+    private ArrayList<Drawable> images;
 
     public SingleAnimal() {
     }
 
-    public SingleAnimal(String name, Drawable image, String description, String videoUrl) {
+    public SingleAnimal(String name, Drawable image, String description,
+                        String videoUrl, ArrayList<Drawable> images) {
         this.name = name;
         this.image = image;
         this.description = description;
         this.videoUrl = videoUrl;
+        this.images = images;
     }
 
     public String getName() {
@@ -49,5 +54,13 @@ public class SingleAnimal {
 
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl;
+    }
+
+    public ArrayList<Drawable> getImages() {
+        return images;
+    }
+
+    public void setImages(ArrayList<Drawable> images) {
+        this.images = images;
     }
 }

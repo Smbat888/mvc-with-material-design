@@ -2,10 +2,13 @@ package com.example.smbat_s.animalszoo.views;
 
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,8 +16,13 @@ import android.widget.TextView;
 
 import com.example.smbat_s.animalszoo.R;
 import com.example.smbat_s.animalszoo.activities.DetailActivity;
+import com.example.smbat_s.animalszoo.adapters.AnimalImagesListAdapter;
+import com.example.smbat_s.animalszoo.adapters.EventsListAdapter;
 import com.example.smbat_s.animalszoo.fragments.VideoDialogFragment;
+import com.example.smbat_s.animalszoo.models.Event;
 import com.example.smbat_s.animalszoo.models.SingleAnimal;
+
+import java.util.ArrayList;
 
 public class AnimalDetailView {
 
@@ -26,6 +34,7 @@ public class AnimalDetailView {
     private TextView animalDescription;
     private ImageView videoImageButton;
     private Toolbar toolbar;
+    private RecyclerView recyclerView;
 
 
     public AnimalDetailView(View view) {
@@ -33,7 +42,8 @@ public class AnimalDetailView {
         this.animalName = view.findViewById(R.id.animal_name);
         this.animalDescription = view.findViewById(R.id.animal_description);
         this.videoImageButton = view.findViewById(R.id.video_button);
-        this.toolbar = view.findViewById(R.id.toolbar);;
+        this.toolbar = view.findViewById(R.id.toolbar);
+        this.recyclerView = view.findViewById(R.id.images_recycler_view);
     }
 
     public void loadAnimalDetail(final SingleAnimal animal, final Context context) {
@@ -68,5 +78,12 @@ public class AnimalDetailView {
         bundle.putString(VIDEO_URL_KEY, animal.getVideoUrl());
         newFragment.setArguments(bundle);
         newFragment.show(ft, VIDEO_DIALOG_TAG);
+    }
+
+    public void loadImagesList(ArrayList<Drawable> images, Context context) {
+        final AnimalImagesListAdapter adapter = new AnimalImagesListAdapter(images);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
     }
 }

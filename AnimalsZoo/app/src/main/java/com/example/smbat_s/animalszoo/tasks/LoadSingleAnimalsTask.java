@@ -18,8 +18,6 @@ public class LoadSingleAnimalsTask extends AsyncTask<Void, Void, ArrayList<Singl
     private static final int BASE_ANIMAL_TYPE_ANIMALS_ID = 2;
     private static final int SINGLE_ANIMAL_NAME_ID = 0;
     private static final int SINGLE_ANIMAL_IMAGE_ID = 1;
-    private static final int SINGLE_ANIMAL_DESCRIPTION_ID = 2;
-    private static final int SINGLE_ANIMAL_VIDEO_URL_ID = 3;
 
     private AnimalsProvider.SingleAnimalsCallback callback;
     private Context context;
@@ -66,8 +64,6 @@ public class LoadSingleAnimalsTask extends AsyncTask<Void, Void, ArrayList<Singl
             final SingleAnimal singleAnimal = new SingleAnimal();
             singleAnimal.setName(singleItem.getString(SINGLE_ANIMAL_NAME_ID));
             singleAnimal.setImage(singleItem.getDrawable(SINGLE_ANIMAL_IMAGE_ID));
-            singleAnimal.setDescription(singleItem.getString(SINGLE_ANIMAL_DESCRIPTION_ID));
-            singleAnimal.setVideoUrl(singleItem.getNonResourceString(SINGLE_ANIMAL_VIDEO_URL_ID));
             singleAnimals.add(singleAnimal);
             singleItem.recycle();
         }

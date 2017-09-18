@@ -29,5 +29,6 @@ public class DetailActivity extends AppCompatActivity implements
     @Override
     public void onAnimalDetailLoaded(SingleAnimal singleAnimal) {
         animalDetailView.loadAnimalDetail(singleAnimal, this);
+        animalDetailView.loadImagesList(singleAnimal.getImages(), this);
     }
 }
