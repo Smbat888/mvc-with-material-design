@@ -81,7 +81,7 @@ public class AnimalDetailView {
     }
 
     public void loadImagesList(ArrayList<Drawable> images, Context context) {
-        final AnimalImagesListAdapter adapter = new AnimalImagesListAdapter(images);
+        final AnimalImagesListAdapter adapter = new AnimalImagesListAdapter(context, images);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
